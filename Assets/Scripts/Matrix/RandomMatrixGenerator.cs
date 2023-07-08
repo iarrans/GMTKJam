@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomMatrixGenerator
+public class RandomMatrixGenerator: MonoBehaviour
 {
     [Tooltip("Items for the randomizer to use")]
     public List<DungeonItem> dungeonItems;
@@ -20,9 +20,10 @@ public class RandomMatrixGenerator
 
         //transforms % of totalItemsRatio in a number which represent that ratio between minTotalItems and maxTotalItems
         //We will use this number to control how many items are created in the image.
-        int numberOfObjects = (int)Mathf.Clamp(totalItemsRatio, minTotalItems, maxTotalItems);
+        int numberOfObjects = (int)Mathf.Lerp(minTotalItems, maxTotalItems, totalItemsRatio);
         if (numberOfObjects < minTotalItems) { numberOfObjects = minTotalItems; }
         else if (numberOfObjects > maxTotalItems) { numberOfObjects = maxTotalItems; }
+        Debug.Log("Se van a crear " + numberOfObjects);
 
         //We generate randomly numberOfObjects amount of intems
         int objectsGenerated = 0;
@@ -38,14 +39,20 @@ public class RandomMatrixGenerator
             objectsGenerated++;
         }
 
-        //Loop choosing where to spam these chosen items
+        //Loop choosing where to spawn these chosen items and adding them to the final randomized matrix
         foreach (DungeonItem itemToPlace in newItems)
         {
             int matrixSize = result.GetSize();
             int randomRow = UnityEngine.Random.Range(0, matrixSize - 1);
             int randomColumn = UnityEngine.Random.Range(0, matrixSize - 1);
-
+            while (result.Get(randomRow, randomColumn) != null)
+            {
+                randomRow = UnityEngine.Random.Range(0, matrixSize - 1);
+                randomColumn = UnityEngine.Random.Range(0, matrixSize - 1);
+            }
+            result.Add(itemToPlace, randomRow, randomColumn);
         }
+
 
         return result;
     }
