@@ -66,6 +66,23 @@ public class Matrix
         }
         return true;
     }
+
+    public List<Vector2> GetNotEqualsPositions(Matrix matrix)
+    {
+        List<Vector2> differences = new();
+        for (int row = 0; row < SIZE; row++)
+        {
+            for (int column = 0; column < SIZE; column++)
+            {
+                if (matrix.Get(row, column) != data[row, column])
+                {
+                    differences.Add(new(row, column));
+                }
+            }
+        }
+        return differences;
+    }
+
     /// <summary>
     /// Call a function for every item in data.
     /// </summary>
