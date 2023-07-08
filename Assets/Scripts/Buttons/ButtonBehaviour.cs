@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class ButtonBehaviour : MonoBehaviour
 {
-    public abstract void OnClick();
+    public abstract void OnClick(MouseController mouseController);
 }

@@ -9,8 +9,10 @@ public class ItemButtonBehaviour : ButtonBehaviour
     /// <summary>
     /// Change cursor on click
     /// </summary>
-    public override void OnClick()
+    public override void OnClick(MouseController mouseController)
     {
-        Cursor.SetCursor(item.cursorTexture, Vector2.zero, CursorMode.Auto);
+        // Because the cursor texture size is 200x200, the offset must be 100x100 to center the click
+        Cursor.SetCursor(item.cursorTexture, new(100f, 100f), CursorMode.Auto);
+        mouseController.item = item;
     }
 }
