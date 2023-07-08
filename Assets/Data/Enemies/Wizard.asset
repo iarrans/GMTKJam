@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Wizard
   m_EditorClassIdentifier: 
   id: 9
-  itemIcon: {fileID: 21300000, guid: 96c7a5cccd59e2c4a927f0b73a1fed79, type: 3}
+  sprite: {fileID: 21300000, guid: 96c7a5cccd59e2c4a927f0b73a1fed79, type: 3}
+  cursorTexture: {fileID: 0}
   prefab3DModel: {fileID: 0}
   itemType: 1

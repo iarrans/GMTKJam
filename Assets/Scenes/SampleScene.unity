@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 527480652}
   - component: {fileID: 527480651}
   - component: {fileID: 527480650}
+  - component: {fileID: 527480654}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -320,6 +321,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 18.001, y: 0, z: 0}
+--- !u!114 &527480654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527480649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9931fea6233040c4faafbd4eed61be5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 1b7a6dc31da51d84ca39b890c2c10a68, type: 2}
 --- !u!1 &1232840915
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +346,7 @@ GameObject:
   - component: {fileID: 1232840918}
   - component: {fileID: 1232840917}
   - component: {fileID: 1232840916}
+  - component: {fileID: 1232840920}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -425,6 +440,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 18.001, y: 0, z: 0}
+--- !u!114 &1232840920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232840915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9931fea6233040c4faafbd4eed61be5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 2454c45575d78b54dacaf7005ce22817, type: 2}
 --- !u!1 &1372345902
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,6 +465,7 @@ GameObject:
   - component: {fileID: 1372345905}
   - component: {fileID: 1372345904}
   - component: {fileID: 1372345903}
+  - component: {fileID: 1372345907}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -530,6 +559,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 18.001, y: 0, z: 0}
+--- !u!114 &1372345907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372345902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9931fea6233040c4faafbd4eed61be5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 2cb7a77400451c74684dca881ba9216e, type: 2}
 --- !u!1 &1724621234
 GameObject:
   m_ObjectHideFlags: 0

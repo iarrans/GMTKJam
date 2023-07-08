@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Potion
   m_EditorClassIdentifier: 
   id: 14
-  itemIcon: {fileID: 21300000, guid: e2a146f6dbaedc1458756a129af7b06e, type: 3}
+  sprite: {fileID: 21300000, guid: e2a146f6dbaedc1458756a129af7b06e, type: 3}
+  cursorTexture: {fileID: 0}
   prefab3DModel: {fileID: 0}
   itemType: 0

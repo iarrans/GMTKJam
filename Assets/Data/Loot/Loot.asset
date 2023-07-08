@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Loot
   m_EditorClassIdentifier: 
   id: 13
-  itemIcon: {fileID: 21300000, guid: 3d310cd493d549e46b079a0298048292, type: 3}
+  sprite: {fileID: 21300000, guid: 3d310cd493d549e46b079a0298048292, type: 3}
+  cursorTexture: {fileID: 0}
   prefab3DModel: {fileID: 0}
   itemType: 0

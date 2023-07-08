@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Key
   m_EditorClassIdentifier: 
   id: 12
-  itemIcon: {fileID: 21300000, guid: 91b35d2aad8956e41972b0e0167dc149, type: 3}
+  sprite: {fileID: 21300000, guid: 91b35d2aad8956e41972b0e0167dc149, type: 3}
+  cursorTexture: {fileID: 0}
   prefab3DModel: {fileID: 0}
   itemType: 0

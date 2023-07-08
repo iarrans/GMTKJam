@@ -8,7 +8,9 @@ public class DungeonItem : ScriptableObject
 
     public int id;
 
-    public Sprite itemIcon;
+    public Sprite sprite;
+
+    public Texture2D cursorTexture;
 
     public GameObject prefab3DModel;
 

@@ -24,7 +24,7 @@ public class MapBehaviour : MonoBehaviour
         RectTransform rectTransform = imageGameObject.GetComponent<RectTransform>();
         
         // Set item Sprite
-        image.sprite = item.itemIcon;
+        image.sprite = item.sprite;
         
         // Calculate the position in the map using anchors
         float percentage = 1f / Matrix.SIZE;
