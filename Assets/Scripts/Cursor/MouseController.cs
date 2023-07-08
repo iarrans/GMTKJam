@@ -26,6 +26,10 @@ public class MouseController : MonoBehaviour
             {
                 objectHit.GetComponent<ButtonBehaviour>().OnClick(this);
             }
+            else
+            {
+                Debug.Log("No button clicked");
+            }
         }
        
     }

@@ -6,5 +6,6 @@ public enum ItemType
 {
         LOOT = 0,//0
         ENEMY = 1,//1
-        ARCHITECTURE = 2//2
+        ARCHITECTURE = 2,//2,
+        ERASER =3
 }
