@@ -8,7 +8,6 @@ public class BlueprintSquareButtonBehaviour : ButtonBehaviour
     public int row;
     public int column;
 
-    public GameObject activeItem;//3DObject created on top if this button
     public Transform itemPosition;
     public BlueprintController blueprintController;
 
@@ -23,13 +22,12 @@ public class BlueprintSquareButtonBehaviour : ButtonBehaviour
         DungeonItem mouseItem = mouseController.item;
         if (mouseItem.itemType == ItemType.ERASER) {
             Debug.Log("Erase activeItem, in pos row column");
-            blueprintController.DeleteDungeonItem(row, column, activeItem);
+            blueprintController.DeleteDungeonItem(row, column);
         }
         else
         {
             Debug.Log("Add item " + mouseItem.id + " in position " + row + "," + column);
-            activeItem = blueprintController.AddDungeonItem(mouseController.item, activeItem, itemPosition.transform.position, row, column);
-            activeItem.transform.localScale = new(10, 10, 10);
+            blueprintController.AddDungeonItem(mouseController.item, itemPosition.transform.position, row, column);
         }
     }
 

@@ -80,7 +80,7 @@ public class Matrix<T>
             for (int column = 0; column < SIZE; column++)
             {
                 T element = matrix.Get(row, column);
-                if ((element == null && data[row,column] != null) || (element != null && data[row, column] == null) || (element != null && element.Equals(data[row, column])))
+                if ((element == null && data[row,column] != null) || (element != null && data[row, column] == null) || (element != null && !element.Equals(data[row, column])))
                 {
                     differences.Add(new(row, column));
                 }

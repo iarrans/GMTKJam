@@ -5,6 +5,7 @@ using UnityEngine;
 public class BlueprintController : MonoBehaviour
 {
     private Matrix<DungeonItem> data;
+    private Matrix<GameObject> models;
 
     public Transform blueprint;
     public MapController mapController;
@@ -13,23 +14,26 @@ public class BlueprintController : MonoBehaviour
     void Awake()
     {
         data = new();
+        models = new();
     }
 
     /// <summary>
     /// Add an item to the blueprint
     /// </summary>
     /// <param name="item">Item to add</param>
-    /// <param name="prevItem">Previous item in the position. If not, null</param>
     /// <param name="mapPosition">Position to create the GameObject</param>
     /// <param name="row">Row of the matrix</param>
     /// <param name="column">Column of the matrix</param>
     /// <returns></returns>
-    public GameObject AddDungeonItem(DungeonItem item, GameObject prevItem, Vector3 mapPosition, int row, int column)
+    public void AddDungeonItem(DungeonItem item, Vector3 mapPosition, int row, int column)
     {
-        if(prevItem != null) DeleteGameObject(prevItem);
+        GameObject prevModel = models.Get(row, column);
+        if(prevModel != null) DeleteGameObject(prevModel);
         data.Add(item, row, column);
         Debug.Log(data.ToString());
-        return Instantiate(item.prefab3DModel, mapPosition, blueprint.rotation);
+        GameObject model = Instantiate(item.prefab3DModel, mapPosition, blueprint.rotation);
+        model.transform.localScale = new(10, 10, 10);
+        models.Add(model, row, column);
     }
 
     /// <summary>
@@ -37,13 +41,15 @@ public class BlueprintController : MonoBehaviour
     /// </summary>
     /// <param name="row">Row of the matrix</param>
     /// <param name="column">Column of the matrix</param>
-    /// <param name="itemToDelete">GameObject to delete</param>
-    public void DeleteDungeonItem(int row, int column, GameObject itemToDelete)
+    public void DeleteDungeonItem(int row, int column)
     {
-        if (itemToDelete == null) return;
         data.Delete(row, column);
-        Debug.Log(data.ToString());
-        DeleteGameObject(itemToDelete);
+        GameObject model = models.Get(row, column);
+        if(model != null)
+        {
+            models.Delete(row, column);
+            DeleteGameObject(model);
+        }
     }
 
     private void DeleteGameObject(GameObject item)
@@ -59,8 +65,6 @@ public class BlueprintController : MonoBehaviour
         Matrix<DungeonItem> activeMapData = mapController.activeData;
         List<Vector2> differences = data.GetNotEqualsPositions(activeMapData);
 
-        differences.ForEach(e => Debug.Log(e));
-
         if(differences.Count == 0)
         {
             Debug.Log("Correcto!");
@@ -68,5 +72,18 @@ public class BlueprintController : MonoBehaviour
         {
             Debug.Log("Cagaste mamawebaso >:(");
         }
+    }
+
+    public void ClearBlueprint()
+    {
+        data = new Matrix<DungeonItem>();
+
+        models.ForEach(DeleteInForEach);
+        models = new Matrix<GameObject>();
+    }
+
+    private void DeleteInForEach(GameObject model, int row, int column)
+    {
+        DeleteGameObject(model);
     }
 }
