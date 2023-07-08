@@ -20,4 +20,20 @@ public class DungeonItem : ScriptableObject
     {
         return id.ToString();
     }
+
+    public override bool Equals(object other)
+    {
+        Debug.Log("equalssss");
+        if (other!= null  && (other.GetType() != typeof(DungeonItem)))
+        {
+            return false;
+        }
+        return id == (other as DungeonItem).id;
+
+    }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
 }

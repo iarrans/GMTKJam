@@ -74,12 +74,13 @@ public class Matrix<T>
     /// <returns></returns>
     public List<Vector2> GetNotEqualsPositions(Matrix<T> matrix)
     {
-        List<Vector2> differences = new();
+        List<Vector2> differences = new List<Vector2>();
         for (int row = 0; row < SIZE; row++)
         {
             for (int column = 0; column < SIZE; column++)
             {
-                if (matrix.Get(row, column).Equals(data[row, column]))
+                T element = matrix.Get(row, column);
+                if ((element == null && data[row,column] != null) || (element != null && data[row, column] == null) || (element != null && element.Equals(data[row, column])))
                 {
                     differences.Add(new(row, column));
                 }

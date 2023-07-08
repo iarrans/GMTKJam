@@ -58,6 +58,9 @@ public class BlueprintController : MonoBehaviour
     {
         Matrix<DungeonItem> activeMapData = mapController.activeData;
         List<Vector2> differences = data.GetNotEqualsPositions(activeMapData);
+
+        differences.ForEach(e => Debug.Log(e));
+
         if(differences.Count == 0)
         {
             Debug.Log("Correcto!");
