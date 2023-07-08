@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c6b51dfa5d038b4ba9bbbfbce382d97, type: 3}
-  m_Name: NewDungeonItem
+  m_Name: Key
   m_EditorClassIdentifier: 
-  id: 1
+  id: 12
   itemIcon: {fileID: 0}
   prefab3DModel: {fileID: 0}
