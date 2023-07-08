@@ -12,12 +12,6 @@ public class DungeonItem : ScriptableObject
 
     public GameObject prefab3DModel;
 
-    public enum ItemType{
-        LOOT = 0,//0
-        ENEMY = 1,//1
-        ARCHITECTURE = 2//2
-    }
-
     public ItemType itemType;
 
 }
