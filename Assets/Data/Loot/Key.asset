@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Key
   m_EditorClassIdentifier: 
   id: 12
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 91b35d2aad8956e41972b0e0167dc149, type: 3}
   prefab3DModel: {fileID: 0}
+  itemType: 0

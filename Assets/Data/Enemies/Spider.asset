@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Spider
   m_EditorClassIdentifier: 
   id: 8
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: d0a00983eec284846b04f14c2de488a9, type: 3}
   prefab3DModel: {fileID: 0}
   itemType: 1
