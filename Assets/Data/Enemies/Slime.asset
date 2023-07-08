@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Slime
   m_EditorClassIdentifier: 
   id: 7
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 271479d10f700a6439e3fa77f1095fb3, type: 3}
   prefab3DModel: {fileID: 0}
   itemType: 1

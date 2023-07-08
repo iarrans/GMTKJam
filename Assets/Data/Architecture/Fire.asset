@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   id: 0
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: e5e1d249895a2154f9a4e4faac54e95d, type: 3}
   prefab3DModel: {fileID: 0}
   itemType: 2

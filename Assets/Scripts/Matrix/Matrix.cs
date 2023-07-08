@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Matrix
 {
@@ -65,9 +66,22 @@ public class Matrix
         }
         return true;
     }
-
     /// <summary>
-    /// Returns the number of rows/columns of the matrix
+    /// Call a function for every item in data.
     /// </summary>
-    /// <returns></returns>
+    /// <param name="action">Function to call</param>
+    public void ForEach(Action<DungeonItem, int, int> action)
+    {
+        for (int row = 0; row < SIZE; row++)
+        {
+            for (int column = 0; column < SIZE; column++)
+            {
+                DungeonItem item = data[row, column];
+                if (item != null)
+                {
+                    action(item, row, column);
+                }
+            }
+        }
+    }
 }

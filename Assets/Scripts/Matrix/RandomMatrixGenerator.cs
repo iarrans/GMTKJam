@@ -52,13 +52,13 @@ public class RandomMatrixGenerator: MonoBehaviour
         int matrixSize = Matrix.SIZE;
         foreach (DungeonItem itemToPlace in newItems)
         {
-            int randomRow = UnityEngine.Random.Range(0, matrixSize - 1);
-            int randomColumn = UnityEngine.Random.Range(0, matrixSize - 1);
+            int randomRow = UnityEngine.Random.Range(0, matrixSize);
+            int randomColumn = UnityEngine.Random.Range(0, matrixSize);
             //until the loop doesn't get a free position, it will keep generating random positions
             while (result.Get(randomRow, randomColumn) != null)
             {
-                randomRow = UnityEngine.Random.Range(0, matrixSize - 1);
-                randomColumn = UnityEngine.Random.Range(0, matrixSize - 1);
+                randomRow = UnityEngine.Random.Range(0, matrixSize);
+                randomColumn = UnityEngine.Random.Range(0, matrixSize);
             }
             result.Add(itemToPlace, randomRow, randomColumn);
             Debug.Log(itemToPlace.itemType + " Succesfully added");

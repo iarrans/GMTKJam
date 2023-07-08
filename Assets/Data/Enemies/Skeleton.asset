@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Skeleton
   m_EditorClassIdentifier: 
   id: 6
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: b48b035219dac5941a78d48cc0a07296, type: 3}
   prefab3DModel: {fileID: 0}
   itemType: 1
