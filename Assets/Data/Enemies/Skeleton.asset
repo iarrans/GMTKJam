@@ -15,3 +15,4 @@ MonoBehaviour:
   id: 6
   itemIcon: {fileID: 0}
   prefab3DModel: {fileID: 0}
+  itemType: 1
