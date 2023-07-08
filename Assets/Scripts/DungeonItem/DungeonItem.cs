@@ -16,4 +16,8 @@ public class DungeonItem : ScriptableObject
 
     public ItemType itemType;
 
+    public override string ToString()
+    {
+        return id.ToString();
+    }
 }

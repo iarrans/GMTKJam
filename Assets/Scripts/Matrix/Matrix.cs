@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Matrix
+public class Matrix<T>
 {
     public readonly static int SIZE = 5;
 
-    private readonly DungeonItem[,] data; 
+    private readonly T[,] data; 
 
     public Matrix()
     {
-        data = new DungeonItem[SIZE, SIZE];
+        data = new T[SIZE, SIZE];
     }
 
     /// <summary>
@@ -21,7 +21,7 @@ public class Matrix
     /// <param name="item">Item to add.</param>
     /// <param name="row">Row of the matrix.</param>
     /// <param name="column">Column of the matrix.</param>
-    public void Add(DungeonItem item, int row, int column)
+    public void Add(T item, int row, int column)
     {
         data[row, column] = item;
     }
@@ -33,7 +33,7 @@ public class Matrix
     /// <param name="column">Row of the matrix.</param>
     public void Delete(int row, int column)
     {
-        data[row, column] = null;
+        data[row, column] = default(T);
     }
 
     /// <summary>
@@ -42,7 +42,7 @@ public class Matrix
     /// <param name="row">Row of the matrix.</param>
     /// <param name="column">Row of the matrix.</param>
     /// <returns></returns>
-    public DungeonItem Get(int row, int column)
+    public T Get(int row, int column)
     {
         return data[row, column];
     }
@@ -52,13 +52,13 @@ public class Matrix
     /// </summary>
     /// <param name="matrix">Matrix to compare.</param>
     /// <returns></returns>
-    public bool Equals(Matrix matrix)
+    public bool Equals(Matrix<T> matrix)
     {
         for(int row = 0; row < SIZE; row++)
         {
             for (int column = 0; column < SIZE; column++)
             {
-                if(matrix.Get(row, column) != data[row, column])
+                if(matrix.Get(row, column).Equals(data[row, column]))
                 {
                     return false;
                 }
@@ -72,14 +72,14 @@ public class Matrix
     /// </summary>
     /// <param name="matrix">Matrix to compare</param>
     /// <returns></returns>
-    public List<Vector2> GetNotEqualsPositions(Matrix matrix)
+    public List<Vector2> GetNotEqualsPositions(Matrix<T> matrix)
     {
         List<Vector2> differences = new();
         for (int row = 0; row < SIZE; row++)
         {
             for (int column = 0; column < SIZE; column++)
             {
-                if (matrix.Get(row, column) != data[row, column])
+                if (matrix.Get(row, column).Equals(data[row, column]))
                 {
                     differences.Add(new(row, column));
                 }
@@ -92,13 +92,13 @@ public class Matrix
     /// Call a function for every item in data.
     /// </summary>
     /// <param name="action">Function to call</param>
-    public void ForEach(Action<DungeonItem, int, int> action)
+    public void ForEach(Action<T, int, int> action)
     {
         for (int row = 0; row < SIZE; row++)
         {
             for (int column = 0; column < SIZE; column++)
             {
-                DungeonItem item = data[row, column];
+                T item = data[row, column];
                 if (item != null)
                 {
                     action(item, row, column);
@@ -115,10 +115,10 @@ public class Matrix
             s += "[";
             for (int column = 0; column < SIZE; column++)
             {
-                DungeonItem item = data[row, column];
+                T item = data[row, column];
                 if (item != null)
                 {
-                    s += item.id.ToString();
+                    s += item.ToString();
                 } else
                 {
                     s += "null";

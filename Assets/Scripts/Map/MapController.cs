@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
-    public Matrix activeData;
+    public Matrix<DungeonItem> activeData;
     public MapGenerator mapGenerator;
 
     // Start is called before the first frame update
