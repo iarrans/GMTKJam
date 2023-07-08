@@ -20,9 +20,9 @@ public class RandomMatrixGenerator: MonoBehaviour
     /// <param name="totalItemsRatio">%of items to be spawned between the range. 0=minimun, 1=maximum</param>
     /// <param name="activeItemTypes">Lets the randomizer filter between objects class to be spawned</param>
     /// <returns></returns>
-    public Matrix GenerateRandomMatrix(float totalItemsRatio, List<ItemType> activeItemTypes)
+    public Matrix<DungeonItem> GenerateRandomMatrix(float totalItemsRatio, List<ItemType> activeItemTypes)
     {
-        Matrix result = new Matrix();
+        Matrix<DungeonItem> result = new();
 
         //transforms % of totalItemsRatio in a number which represent that ratio between minTotalItems and maxTotalItems
         //We will generate randomly numberOfObjects amount of intems
@@ -49,7 +49,7 @@ public class RandomMatrixGenerator: MonoBehaviour
         }
 
         //Loop choosing where to spawn these chosen items and adding them to the final randomized matrix
-        int matrixSize = Matrix.SIZE;
+        int matrixSize = Matrix<DungeonItem>.SIZE;
         foreach (DungeonItem itemToPlace in newItems)
         {
             int randomRow = UnityEngine.Random.Range(0, matrixSize);

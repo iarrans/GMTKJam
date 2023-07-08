@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlueprintController : MonoBehaviour
 {
-    private Matrix data;
+    private Matrix<DungeonItem> data;
 
     public Transform blueprint;
     public MapController mapController;
@@ -56,7 +56,7 @@ public class BlueprintController : MonoBehaviour
     /// </summary>
     public void SendBlueprint()
     {
-        Matrix activeMapData = mapController.activeData;
+        Matrix<DungeonItem> activeMapData = mapController.activeData;
         List<Vector2> differences = data.GetNotEqualsPositions(activeMapData);
         if(differences.Count == 0)
         {

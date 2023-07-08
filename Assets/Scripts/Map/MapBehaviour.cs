@@ -11,7 +11,7 @@ public class MapBehaviour : MonoBehaviour
     /// Load images in the map.
     /// </summary>
     /// <param name="matrix">Matrix with the items</param>
-    public void LoadImagesByMatrix(Matrix matrix)
+    public void LoadImagesByMatrix(Matrix<DungeonItem> matrix)
     {
         matrix.ForEach(LoadImage);
     }
@@ -27,7 +27,7 @@ public class MapBehaviour : MonoBehaviour
         image.sprite = item.sprite;
         
         // Calculate the position in the map using anchors
-        float percentage = 1f / Matrix.SIZE;
+        float percentage = 1f / Matrix<DungeonItem>.SIZE;
         float maxY = 1 - percentage * row;
         float minY = maxY - percentage;
         float minX = 0.2f * column;
