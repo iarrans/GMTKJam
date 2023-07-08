@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 4
   sprite: {fileID: 21300000, guid: 1ea93e8b24c245f418442aac15dbeb44, type: 3}
   cursorTexture: {fileID: 2800000, guid: 080bff7e78ddc6a44a5f9cd94170b9aa, type: 3}
-  prefab3DModel: {fileID: 0}
+  prefab3DModel: {fileID: 919132149155446097, guid: 7b1ac892867e48949a8b0c777e6019cd, type: 3}
   itemType: 2

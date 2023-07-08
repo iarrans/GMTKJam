@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 11
   sprite: {fileID: 21300000, guid: 66ba30ac07ed55b428eaf104efba6a2e, type: 3}
-  cursorTexture: {fileID: 0}
-  prefab3DModel: {fileID: 0}
+  cursorTexture: {fileID: 2800000, guid: 8a5d854979e6a9144991b2fb09530969, type: 3}
+  prefab3DModel: {fileID: 919132149155446097, guid: 526c55f48dae01e4a8cd7639a2b35975, type: 3}
   itemType: 0
