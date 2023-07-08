@@ -40,19 +40,22 @@ public class RandomMatrixGenerator: MonoBehaviour
         }
 
         //Loop choosing where to spawn these chosen items and adding them to the final randomized matrix
+        int matrixSize = Matrix.SIZE;
         foreach (DungeonItem itemToPlace in newItems)
         {
-            int matrixSize = result.GetSize();
             int randomRow = UnityEngine.Random.Range(0, matrixSize - 1);
             int randomColumn = UnityEngine.Random.Range(0, matrixSize - 1);
+            Debug.Log("Position selected: ["+randomRow + "," + randomColumn +"]");
+            //until the loop doesn't get a free position, it will keep generating random positions
             while (result.Get(randomRow, randomColumn) != null)
             {
                 randomRow = UnityEngine.Random.Range(0, matrixSize - 1);
                 randomColumn = UnityEngine.Random.Range(0, matrixSize - 1);
+                Debug.Log("Position selected in loop: [" + randomRow + "," + randomColumn + "]");
             }
             result.Add(itemToPlace, randomRow, randomColumn);
+            Debug.Log(itemToPlace.id + " Succesfully added");
         }
-
 
         return result;
     }

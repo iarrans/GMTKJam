@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Matrix
 {
-    private readonly static int SIZE = 5;
+    public readonly static int SIZE = 5;
 
     private readonly DungeonItem[,] data; 
 
@@ -70,8 +70,4 @@ public class Matrix
     /// Returns the number of rows/columns of the matrix
     /// </summary>
     /// <returns></returns>
-    public int GetSize()
-    {
-        return data.Length;
-    }
 }
