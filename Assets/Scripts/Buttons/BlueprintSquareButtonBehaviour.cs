@@ -10,25 +10,26 @@ public class BlueprintSquareButtonBehaviour : ButtonBehaviour
 
     public GameObject activeItem;//3DObject created on top if this button
     public Transform itemPosition;
+    public BlueprintController blueprintController;
 
     /// <summary>
     /// Checks if the active Object is eraser or other DungeonItem and creates said object or deletes the active one.
     /// </summary>
-    /// <param name="mouseController"></param>
+    /// <param name="mouseController">Active mouseController</param>
     public override void OnClick(MouseController mouseController)
     {
+        if (mouseController.item == null) return;
+
         DungeonItem mouseItem = mouseController.item;
         if (mouseItem.itemType == ItemType.ERASER) {
             Debug.Log("Erase activeItem, in pos row column");
-            //BlueprintController blueprintController = GameObject.Find("BlueprintController");
-            //DeleteDungeonItem(row, column, activeItem);
+            blueprintController.DeleteDungeonItem(row, column, activeItem);
         }
         else
         {
             Debug.Log("Add item " + mouseItem.id + " in position " + row + "," + column);
-            //BlueprintController blueprintController = GameObject.F
-            //BlueprintController blueprintController = GameObject.Find("BlueprintController");
-            //AddDungeonItem(mouseItem, activeItem, itemPosition row, column);
+            activeItem = blueprintController.AddDungeonItem(mouseController.item, activeItem, itemPosition.transform.position, row, column);
+            activeItem.transform.localScale = new(10, 10, 10);
         }
     }
 

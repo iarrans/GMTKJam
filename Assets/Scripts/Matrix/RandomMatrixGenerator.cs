@@ -61,7 +61,6 @@ public class RandomMatrixGenerator: MonoBehaviour
                 randomColumn = UnityEngine.Random.Range(0, matrixSize);
             }
             result.Add(itemToPlace, randomRow, randomColumn);
-            Debug.Log(itemToPlace.itemType + " Succesfully added");
         }
 
         return result;

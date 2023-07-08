@@ -67,6 +67,11 @@ public class Matrix
         return true;
     }
 
+    /// <summary>
+    /// Get the positions of the elements that are not equal in matrix
+    /// </summary>
+    /// <param name="matrix">Matrix to compare</param>
+    /// <returns></returns>
     public List<Vector2> GetNotEqualsPositions(Matrix matrix)
     {
         List<Vector2> differences = new();
@@ -100,5 +105,33 @@ public class Matrix
                 }
             }
         }
+    }
+
+    public override string ToString()
+    {
+        string s = "";
+        for (int row = 0; row < SIZE; row++)
+        {
+            s += "[";
+            for (int column = 0; column < SIZE; column++)
+            {
+                DungeonItem item = data[row, column];
+                if (item != null)
+                {
+                    s += item.id.ToString();
+                } else
+                {
+                    s += "null";
+                }
+
+                if(column + 1 < SIZE)
+                {
+                    s += ", ";
+                }
+            }
+            s += "]\n";
+        }
+
+        return s;
     }
 }
