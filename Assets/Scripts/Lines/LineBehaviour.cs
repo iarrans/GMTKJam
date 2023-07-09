@@ -51,9 +51,10 @@ public class LineBehaviour : MonoBehaviour
         }       
     }
 
-    public void OnActiveLine()
+    public void OnActiveLine(float limitTime)
     {
         isPlayerHere = true;
+        lineElements.ForEach(line => line.limitTime = limitTime);
         lineElements[0].OnPlayerEnter(PlayerType.NORMAL);
         lineElements[0].ChangeLineType(LineElementType.LOBBY);
         topElement.ChangeLineType(LineElementType.PENDING);
