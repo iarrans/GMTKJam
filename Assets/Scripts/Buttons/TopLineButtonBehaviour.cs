@@ -12,7 +12,11 @@ public class TopLineButtonBehaviour : ButtonBehaviour
 
     public override void OnClick(MouseController mouseController)
     {
-        if(topLineElementBehaviour.map != null) mapController.ChangeMap(topLineElementBehaviour.map, topLineElementBehaviour.lineBehaviour);
+        if (topLineElementBehaviour.map != null)
+        {
+            audioSource.Play();
+            mapController.ChangeMap(topLineElementBehaviour.map, topLineElementBehaviour.lineBehaviour);
+        }
     }
 
 

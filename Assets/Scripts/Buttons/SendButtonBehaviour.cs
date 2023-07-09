@@ -8,6 +8,7 @@ public class SendButtonBehaviour : ButtonBehaviour
 
     public override void OnClick(MouseController mouseController)
     {
+        audioSource.Play();
         blueprintController.SendBlueprint();
     }
 
