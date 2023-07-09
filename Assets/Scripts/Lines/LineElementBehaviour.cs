@@ -8,7 +8,7 @@ public abstract class LineElementBehaviour : MonoBehaviour
 
     public LineElementType currentType;
 
-    // private LineBehaviour lineBehaviour;
+    public LineBehaviour lineBehaviour;
 
     private void Awake()
     {
