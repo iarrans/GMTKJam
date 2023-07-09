@@ -61,7 +61,7 @@ public class BlueprintController : MonoBehaviour
     /// </summary>
     public void SendBlueprint()
     {
-        Matrix<DungeonItem> activeMapData = mapController.activeData.data;
+        Matrix<DungeonItem> activeMapData = mapController.activeMap.data;
         List<Vector2> differences = data.GetNotEqualsPositions(activeMapData);
 
         if(differences.Count == 0)
