@@ -9,14 +9,14 @@ public class MapGenerator : MonoBehaviour
 
     public RectTransform mapCanvas;
 
-    public Matrix<DungeonItem> GenerateMap()
+    public Map GenerateMap()
     {
         Debug.Log("GENERATING MAP");
         Matrix<DungeonItem> matrix = randomMatrixGenerator.GenerateRandomMatrix(0.5f, new List<ItemType>() { ItemType.ARCHITECTURE, ItemType.ENEMY, ItemType.LOOT });
-        GameObject map = Instantiate(mapPrefab, mapCanvas.transform);
-        map.GetComponentInChildren<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, mapCanvas.sizeDelta.x);
-        map.GetComponentInChildren<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, mapCanvas.sizeDelta.y);
-        map.GetComponent<MapBehaviour>().LoadImagesByMatrix(matrix);
-        return matrix;
+        GameObject blueprint = Instantiate(mapPrefab, mapCanvas.transform);
+        blueprint.GetComponent<MapBehaviour>().LoadImagesByMatrix(matrix);
+
+        Map result = new Map(blueprint, matrix);
+        return result;
     }
 }
