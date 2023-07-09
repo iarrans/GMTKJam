@@ -5,19 +5,20 @@ using UnityEngine;
 public class MapController : MonoBehaviour
 {
     public Map activeMap;
+    public LineBehaviour lineBehaviour;
     public MapGenerator mapGenerator;
     public Canvas tableCanvas;
     public Canvas reserveCanvas;
 
-    // Start is called before the first frame update
-    public void ChangeMap(Map newMap)
+    public void ChangeMap(Map newMap, LineBehaviour lineBehaviour)
     {
         if (activeMap != null)
         {
             SetMapParent(reserveCanvas, activeMap);
         }
-        SetMapParent(tableCanvas, newMap);
+        if(newMap != null) SetMapParent(tableCanvas, newMap);
         activeMap = newMap;
+        this.lineBehaviour = lineBehaviour;
     }
 
     public void SetMapParent(Canvas parent, Map map)

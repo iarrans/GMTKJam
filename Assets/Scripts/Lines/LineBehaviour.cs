@@ -17,13 +17,17 @@ public class LineBehaviour : MonoBehaviour
         lineElements[1].Copy(lineElements[0]);
         lineElements[0].OnMapCompleted();
         counter++;
-        if (counter <= 2)
+        if (counter < 2)
         {
             topElement.map = mapController.mapGenerator.GenerateMap();
+            mapController.ChangeMap(topElement.map, this);
         }
         else
         {
+            Debug.Log("COUNTER FINISHED!");
+            topElement.map = null;
             topElement.ChangeLineType(LineElementType.END);
+            mapController.ChangeMap(null, null);
         }
     }
 
@@ -31,7 +35,7 @@ public class LineBehaviour : MonoBehaviour
     {
         if (position == 0)
         {
-            if (topElement.canvasBehaviour.endBackground)
+            if (topElement.canvasBehaviour.endBackground.gameObject.activeSelf)
             {
                 OnDeactivateLine();
             }
@@ -53,6 +57,7 @@ public class LineBehaviour : MonoBehaviour
         lineElements[0].OnPlayerEnter(PlayerType.NORMAL);
         lineElements[0].ChangeLineType(LineElementType.LOBBY);
         topElement.ChangeLineType(LineElementType.PENDING);
+        topElement.map = mapController.mapGenerator.GenerateMap();
         counter = 0;
     }
 

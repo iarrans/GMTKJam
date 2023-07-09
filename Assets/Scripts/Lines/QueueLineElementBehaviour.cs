@@ -15,7 +15,7 @@ public class QueueLineElementBehaviour : LineElementBehaviour
         if (playerType == PlayerType.SPEEDRUNNER) canvasBehaviour.SetSpeedRunnerPlayerActive(true);
         canvasBehaviour.SetTimerActive(true);
         timer = 0;
-        limitTime = 5;
+        limitTime = 15;
         isPlayerHere = true;
     }
 
@@ -40,14 +40,15 @@ public class QueueLineElementBehaviour : LineElementBehaviour
 
     public void Copy(QueueLineElementBehaviour otherQueue)
     {
-        canvasBehaviour.SetLobbyActive(otherQueue.canvasBehaviour.lobby);
-        canvasBehaviour.SetDangerActive(otherQueue.canvasBehaviour.danger);
-        canvasBehaviour.SetNormalPlayerActive(otherQueue.canvasBehaviour.normalPlayer);
-        canvasBehaviour.SetSpeedRunnerPlayerActive(otherQueue.canvasBehaviour.speedrunnerPlayer);
-        canvasBehaviour.SetTimerActive(otherQueue.canvasBehaviour.timer);
-        canvasBehaviour.SetEndBackgrounActive(otherQueue.canvasBehaviour.endBackground);
-        canvasBehaviour.SetMapBackgroundActive(otherQueue.canvasBehaviour.mapBackground);
-        canvasBehaviour.SetPendingBackgroundActive(otherQueue.canvasBehaviour.pendingBackground);
+        canvasBehaviour.SetLobbyActive(otherQueue.canvasBehaviour.lobby.gameObject.activeSelf);
+        canvasBehaviour.SetDangerActive(otherQueue.canvasBehaviour.danger.gameObject.activeSelf);
+        canvasBehaviour.SetNormalPlayerActive(otherQueue.canvasBehaviour.normalPlayer.gameObject.activeSelf);
+        canvasBehaviour.SetSpeedRunnerPlayerActive(otherQueue.canvasBehaviour.speedrunnerPlayer.gameObject.activeSelf);
+        canvasBehaviour.SetTimerActive(otherQueue.canvasBehaviour.timer.gameObject.activeSelf);
+        canvasBehaviour.SetEndBackgrounActive(otherQueue.canvasBehaviour.endBackground.gameObject.activeSelf);
+        canvasBehaviour.SetMapBackgroundActive(otherQueue.canvasBehaviour.mapBackground.gameObject.activeSelf);
+        canvasBehaviour.SetPendingBackgroundActive(otherQueue.canvasBehaviour.pendingBackground.gameObject.activeSelf);
+        canvasBehaviour.SetEmptyBackgroundActive(otherQueue.canvasBehaviour.emptyBackground.gameObject.activeSelf);
         canvasBehaviour.ChangeTimerValue(otherQueue.canvasBehaviour.timer.value);
 
         timer = otherQueue.timer;
@@ -59,7 +60,9 @@ public class QueueLineElementBehaviour : LineElementBehaviour
     public void OnMapCompleted()
     {
         canvasBehaviour.DeactivateAll();
+        canvasBehaviour.SetEmptyBackgroundActive(false);
         canvasBehaviour.SetMapBackgroundActive(true);
         currentType = LineElementType.NORMAL;
+        OnPlayerExit();
     }
 }

@@ -31,7 +31,7 @@ public class BlueprintController : MonoBehaviour
         if(prevModel != null) DeleteGameObject(prevModel);
         data.Add(item, row, column);
         Debug.Log(data.ToString());
-        GameObject model = Instantiate(item.prefab3DModel, mapPosition, blueprint.rotation);
+        GameObject model = Instantiate(item.prefab3DModel, mapPosition, blueprint.transform.rotation);
         models.Add(model, row, column);
     }
 
@@ -61,12 +61,15 @@ public class BlueprintController : MonoBehaviour
     /// </summary>
     public void SendBlueprint()
     {
+        if (mapController.activeMap == null) return;
         Matrix<DungeonItem> activeMapData = mapController.activeMap.data;
         List<Vector2> differences = data.GetNotEqualsPositions(activeMapData);
 
         if(differences.Count == 0)
         {
             Debug.Log("Correcto!");
+            mapController.lineBehaviour.OnMapCompleted();
+            ClearBlueprint();
         } else
         {
             Debug.Log("Cagaste mamawebaso >:(");

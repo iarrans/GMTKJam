@@ -10,14 +10,9 @@ public class TopLineButtonBehaviour : ButtonBehaviour
 
     public MapGenerator mapGenerator;
 
-    private void Start()
-    {
-       topLineElementBehaviour.map = mapGenerator.GenerateMap();
-    }
-
     public override void OnClick(MouseController mouseController)
     {
-        mapController.ChangeMap(topLineElementBehaviour.map);
+        if(topLineElementBehaviour.map != null) mapController.ChangeMap(topLineElementBehaviour.map, topLineElementBehaviour.lineBehaviour);
     }
 
 

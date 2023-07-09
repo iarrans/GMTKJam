@@ -29,9 +29,11 @@ public abstract class LineElementBehaviour : MonoBehaviour
         {
             case LineElementType.LOBBY:
                 canvasBehaviour.SetLobbyActive(false);
+                canvasBehaviour.SetMapBackgroundActive(false);
                 break;
             case LineElementType.NORMAL:
                 canvasBehaviour.SetDangerActive(false);
+                canvasBehaviour.SetMapBackgroundActive(false);
                 break;
             case LineElementType.END:
                 canvasBehaviour.SetEndBackgrounActive(false);
@@ -61,6 +63,9 @@ public abstract class LineElementBehaviour : MonoBehaviour
                 break;
             case LineElementType.PENDING:
                 canvasBehaviour.SetPendingBackgroundActive(true);
+                break;
+            case LineElementType.TURN_OFF:
+                canvasBehaviour.SetEmptyBackgroundActive(true);
                 break;
         }
     }

@@ -45,7 +45,7 @@ public class LineElementCanvasBehaviour : MonoBehaviour
 
     public void SetTimerActive(bool entry)
     {
-        timer.enabled = entry;
+        timer.gameObject.SetActive(entry);
     }
 
 
