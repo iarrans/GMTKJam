@@ -10,11 +10,13 @@ public class LineElementCanvasBehaviour : MonoBehaviour
     public Image danger;
 
     public Image normalPlayer;
-    public Image speedRunner;
+    public Image speedrunnerPlayer;
 
     public Image endBackground;
     public Image pendingBackground;
     public Image mapBackground;
+    public Image emptyBackground;
+
 
     public Slider timer;
 
@@ -38,7 +40,7 @@ public class LineElementCanvasBehaviour : MonoBehaviour
 
     public void SetSpeedRunnerPlayerActive(bool entry)
     {
-        speedRunner.gameObject.SetActive(entry);
+        speedrunnerPlayer.gameObject.SetActive(entry);
     }
 
     public void SetTimerActive(bool entry)
@@ -63,10 +65,29 @@ public class LineElementCanvasBehaviour : MonoBehaviour
         pendingBackground.gameObject.SetActive(entry);
     }
 
+    public void SetEmptyBackgroundActive(bool entry)
+    {
+       emptyBackground.gameObject.SetActive(entry);
+    }
+
 
     //Slider indicating time
     public void ChangeTimerValue(float value) {
         timer.value = value;
+    }
+
+    //Slider indicating time
+    public void DeactivateAll()
+    {
+        lobby.gameObject.SetActive(false);
+        danger.gameObject.SetActive(false);
+        normalPlayer.gameObject.SetActive(false);
+        speedrunnerPlayer.gameObject.SetActive(false);
+        timer.gameObject.SetActive(false);
+        mapBackground.gameObject.SetActive(false);
+        endBackground.gameObject.SetActive(false);
+        pendingBackground.gameObject.SetActive(false);
+        emptyBackground.gameObject.SetActive(true);
     }
 
 }
