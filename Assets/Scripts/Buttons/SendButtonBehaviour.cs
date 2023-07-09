@@ -8,7 +8,6 @@ public class SendButtonBehaviour : ButtonBehaviour
 
     public override void OnClick(MouseController mouseController)
     {
-        Debug.Log("Enviamos Blueprint");
         blueprintController.SendBlueprint();
     }
 

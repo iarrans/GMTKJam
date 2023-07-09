@@ -17,8 +17,6 @@ public class TopLineButtonBehaviour : ButtonBehaviour
 
     public override void OnClick(MouseController mouseController)
     {
-        Debug.Log(mapController);
-        Debug.Log(topLineElementBehaviour);
         mapController.ChangeMap(topLineElementBehaviour.map);
     }
 

@@ -11,7 +11,6 @@ public class MapGenerator : MonoBehaviour
 
     public Map GenerateMap()
     {
-        Debug.Log("GENERATING MAP");
         Matrix<DungeonItem> matrix = randomMatrixGenerator.GenerateRandomMatrix(0.5f, new List<ItemType>() { ItemType.ARCHITECTURE, ItemType.ENEMY, ItemType.LOOT });
         GameObject blueprint = Instantiate(mapPrefab, mapCanvas.transform);
         blueprint.GetComponent<MapBehaviour>().LoadImagesByMatrix(matrix);
