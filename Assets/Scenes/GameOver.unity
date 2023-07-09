@@ -774,8 +774,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fc6acbfb164204946bac61679b79b44d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.515
-  m_Pitch: -2.71
+  m_Volume: 1
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1098,6 +1098,9 @@ MonoBehaviour:
   mapController: {fileID: 2089733959}
   isPlayerHere: 0
   counter: 0
+  focusMaterial: {fileID: 0}
+  noFocusMaterial: {fileID: 0}
+  wires: []
 --- !u!1001 &497202864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5755,6 +5758,9 @@ MonoBehaviour:
   mapController: {fileID: 2089733959}
   isPlayerHere: 0
   counter: 0
+  focusMaterial: {fileID: 0}
+  noFocusMaterial: {fileID: 0}
+  wires: []
 --- !u!1001 &2072644821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6075,6 +6081,9 @@ MonoBehaviour:
   mapController: {fileID: 2089733959}
   isPlayerHere: 0
   counter: 0
+  focusMaterial: {fileID: 0}
+  noFocusMaterial: {fileID: 0}
+  wires: []
 --- !u!1 &2089733956
 GameObject:
   m_ObjectHideFlags: 0

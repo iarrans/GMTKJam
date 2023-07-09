@@ -12,6 +12,10 @@ public class LineBehaviour : MonoBehaviour
     public bool isPlayerHere = false;
     public int counter = 0;
 
+    public Material focusMaterial;
+    public Material noFocusMaterial;
+    public List<GameObject> wires;
+
     public void OnMapCompleted()
     {
         lineElements[2].Copy(lineElements[1]);
@@ -69,6 +73,16 @@ public class LineBehaviour : MonoBehaviour
         lineElements[0].OnPlayerExit();
         lineElements.ForEach(line => line.canvasBehaviour.DeactivateAll());
         topElement.ChangeLineType(LineElementType.TURN_OFF);
+    }
+
+    public void OnFocusLine()
+    {
+        wires.ForEach(wire => wire.GetComponent<MeshRenderer>().material = focusMaterial);
+    }
+
+    public void OnNoFocusLine()
+    {
+        wires.ForEach(wire => wire.GetComponent<MeshRenderer>().material = noFocusMaterial);
     }
 
 }

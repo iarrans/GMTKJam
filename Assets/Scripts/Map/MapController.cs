@@ -18,6 +18,8 @@ public class MapController : MonoBehaviour
         }
         if(newMap != null) SetMapParent(tableCanvas, newMap);
         activeMap = newMap;
+        if (this.lineBehaviour != null) this.lineBehaviour.OnNoFocusLine();
+        lineBehaviour.OnFocusLine();
         this.lineBehaviour = lineBehaviour;
     }
 
