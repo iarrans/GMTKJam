@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LineBehaviour : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class LineBehaviour : MonoBehaviour
             }
             else
             {
-                Debug.Log("Game Over");
+                SceneManager.LoadScene("GameOver");
             }       
         }
         else
