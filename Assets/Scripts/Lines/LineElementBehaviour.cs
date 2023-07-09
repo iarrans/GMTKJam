@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class LineElementBehaviour : MonoBehaviour
 {
-    // public CanvasBehaviour canvasBehaviour;
+    public LineElementCanvasBehaviour canvasBehaviour;
 
     public LineElementType currentType;
 
@@ -27,19 +27,19 @@ public abstract class LineElementBehaviour : MonoBehaviour
         switch(type)
         {
             case LineElementType.LOBBY:
-                // canvasBehaviour.setLobbyActive(false);
+                canvasBehaviour.SetLobbyActive(false);
                 break;
             case LineElementType.NORMAL:
-                // canvasBehaviour.setDangerActive(false);
+                canvasBehaviour.SetDangerActive(false);
                 break;
             case LineElementType.END:
-                // canvasBehaviour.setEndBackgroundActive(false);
+                canvasBehaviour.SetEndBackgrounActive(false);
                 break;
             case LineElementType.PENDING:
-                // canvasBehaviour.setPendingBackgroundActive(false);
+                canvasBehaviour.SetPendingBackgroundActive(false);
                 break;
             case LineElementType.TURN_OFF:
-                // canvasBehaviour.setEmptyBackgroundActive(false);
+                canvasBehaviour.SetEmptyBackgroundActive(false);
                 break;
         }
     }
@@ -49,15 +49,17 @@ public abstract class LineElementBehaviour : MonoBehaviour
         switch (type)
         {
             case LineElementType.LOBBY:
-                // canvasBehaviour.setLobbyActive(true);
+                canvasBehaviour.SetLobbyActive(true);
+                canvasBehaviour.SetMapBackgroundActive(true);
+                break;
             case LineElementType.NORMAL:
-                // canvasBehaviour.setMapBackground(true);
+                canvasBehaviour.SetMapBackgroundActive(true);
                 break;
             case LineElementType.END:
-                // canvasBehaviour.setEndBackgroundActive(true);
+                canvasBehaviour.SetEndBackgrounActive(true);
                 break;
             case LineElementType.PENDING:
-                // canvasBehaviour.setPendingBackgroundActive(true);
+                canvasBehaviour.SetPendingBackgroundActive(true);
                 break;
         }
     }
@@ -66,7 +68,7 @@ public abstract class LineElementBehaviour : MonoBehaviour
     {
         if(!isActive)
         {
-            // canvasBehaviour.deactivateAll();
+            canvasBehaviour.DeactivateAll();
         } else
         {
             ChangeLineType(type);
