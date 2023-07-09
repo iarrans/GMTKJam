@@ -32,7 +32,6 @@ public class BlueprintController : MonoBehaviour
         data.Add(item, row, column);
         Debug.Log(data.ToString());
         GameObject model = Instantiate(item.prefab3DModel, mapPosition, blueprint.rotation);
-        model.transform.localScale = new(10, 10, 10);
         models.Add(model, row, column);
     }
 
