@@ -12,6 +12,7 @@ public abstract class LineElementBehaviour : MonoBehaviour
 
     private void Awake()
     {
+        canvasBehaviour.DeactivateAll();
         currentType = LineElementType.TURN_OFF;
     }
 
