@@ -15,7 +15,6 @@ public class QueueLineElementBehaviour : LineElementBehaviour
         if (playerType == PlayerType.SPEEDRUNNER) canvasBehaviour.SetSpeedRunnerPlayerActive(true);
         canvasBehaviour.SetTimerActive(true);
         timer = 0;
-        limitTime = 15;
         isPlayerHere = true;
     }
 

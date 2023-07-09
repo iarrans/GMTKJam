@@ -238,7 +238,9 @@ MonoBehaviour:
   - {fileID: 2086391447}
   - {fileID: 2003650419}
   - {fileID: 457000580}
-  creationRate: 5
+  initialSpawnDelay: 0.5
+  creationRateLimits: {x: 3, y: 6}
+  playerLimitTime: {x: 10, y: 20}
 --- !u!4 &16821384
 Transform:
   m_ObjectHideFlags: 0
@@ -6814,8 +6816,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b1c9faa50c6bbe944ad8c1dc518c7e9c, type: 2}
   - {fileID: 11400000, guid: 1b7a6dc31da51d84ca39b890c2c10a68, type: 2}
   - {fileID: 11400000, guid: 123411d9d608cd74c8a890d84fc682dd, type: 2}
-  minTotalItems: 2
-  maxTotalItems: 3
+  minTotalItems: 5
+  maxTotalItems: 5
 --- !u!114 &2089733958
 MonoBehaviour:
   m_ObjectHideFlags: 0
