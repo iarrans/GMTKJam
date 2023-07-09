@@ -23,6 +23,7 @@ public class audioGameOverController : MonoBehaviour
             hasStartedSong = true;
             audioSource.clip = gameOverSong;
             audioSource.Play();
+            audioSource.loop = true;
         }
     }
 
