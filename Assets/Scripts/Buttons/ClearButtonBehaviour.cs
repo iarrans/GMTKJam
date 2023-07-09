@@ -8,6 +8,7 @@ public class ClearButtonBehaviour : ButtonBehaviour
 
     public override void OnClick(MouseController mouseController)
     {
+        audioSource.Play();
         blueprintController.ClearBlueprint();
     }
 }

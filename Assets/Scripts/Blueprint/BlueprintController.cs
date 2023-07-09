@@ -10,6 +10,10 @@ public class BlueprintController : MonoBehaviour
     public Transform blueprint;
     public MapController mapController;
 
+    public AudioSource audioSource;
+    public AudioClip correctMap;
+    public AudioClip incorrectMap;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -67,11 +71,14 @@ public class BlueprintController : MonoBehaviour
 
         if(differences.Count == 0)
         {
-            Debug.Log("Correcto!");
+            audioSource.clip = correctMap;
+            audioSource.Play();
             mapController.lineBehaviour.OnMapCompleted();
             ClearBlueprint();
         } else
         {
+            audioSource.clip = incorrectMap;
+            audioSource.Play();
             Debug.Log("Cagaste mamawebaso >:(");
         }
     }

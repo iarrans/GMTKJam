@@ -17,6 +17,7 @@ public class BlueprintSquareButtonBehaviour : ButtonBehaviour
     /// <param name="mouseController">Active mouseController</param>
     public override void OnClick(MouseController mouseController)
     {
+        audioSource.Play();
         if (mouseController.item == null) return;
 
         DungeonItem mouseItem = mouseController.item;
