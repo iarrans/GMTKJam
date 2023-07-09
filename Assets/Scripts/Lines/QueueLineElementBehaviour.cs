@@ -34,7 +34,32 @@ public class QueueLineElementBehaviour : LineElementBehaviour
         timer += Time.deltaTime;
 
         float timePercentage = timer / limitTime;
-        if (timePercentage >= 1) Debug.Log("PERDISTE MAMAWEBASO UEUEUEUEUEUEUEUE");
+        if (timePercentage >= 1) lineBehaviour.OnElementTimerFinished(position);
         canvasBehaviour.ChangeTimerValue(timePercentage);
+    }
+
+    public void Copy(QueueLineElementBehaviour otherQueue)
+    {
+        canvasBehaviour.SetLobbyActive(otherQueue.canvasBehaviour.lobby);
+        canvasBehaviour.SetDangerActive(otherQueue.canvasBehaviour.danger);
+        canvasBehaviour.SetNormalPlayerActive(otherQueue.canvasBehaviour.normalPlayer);
+        canvasBehaviour.SetSpeedRunnerPlayerActive(otherQueue.canvasBehaviour.speedrunnerPlayer);
+        canvasBehaviour.SetTimerActive(otherQueue.canvasBehaviour.timer);
+        canvasBehaviour.SetEndBackgrounActive(otherQueue.canvasBehaviour.endBackground);
+        canvasBehaviour.SetMapBackgroundActive(otherQueue.canvasBehaviour.mapBackground);
+        canvasBehaviour.SetPendingBackgroundActive(otherQueue.canvasBehaviour.pendingBackground);
+        canvasBehaviour.ChangeTimerValue(otherQueue.canvasBehaviour.timer.value);
+
+        timer = otherQueue.timer;
+        limitTime = otherQueue.limitTime;
+        isPlayerHere = otherQueue.isPlayerHere;
+        currentType = otherQueue.currentType;
+    }
+
+    public void OnMapCompleted()
+    {
+        canvasBehaviour.DeactivateAll();
+        canvasBehaviour.SetMapBackgroundActive(true);
+        currentType = LineElementType.NORMAL;
     }
 }
